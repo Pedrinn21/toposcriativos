@@ -1,0 +1,36 @@
+{% extends "tipopapel_master.html" %}
+
+{% block main %}
+    <div class="btn-group-vertical">
+        <a type="button" class="btn btn-secondary" href="/tipopapel/insert">Insert</a>
+        <a type="button" class="btn btn-secondary">Voltar</a>
+        
+    </div>
+
+    <div class="container">
+        <h1 style="text-align:center"><b>TIPOS DE PAPEL</b></h1>
+      </div>
+      <br>
+      <div class="container">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for dbs in db %}
+           <tr>
+              <th>{{dbs.id}}</th>
+              <td>{{dbs.descricao}}</td>
+            </tr>
+          {% endfor %}
+        
+          </tbody>
+        </table>
+      </div>
+
+{% endblock main %}
+
+    

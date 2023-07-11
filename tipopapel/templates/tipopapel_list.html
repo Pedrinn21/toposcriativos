@@ -3,7 +3,7 @@
 {% block main %}
     <div class="btn-group-vertical">
         <a type="button" class="btn btn-secondary" href="/tipopapel/insert">Insert</a>
-        <a type="button" class="btn btn-secondary">Voltar</a>
+        <a type="button" class="btn btn-secondary" href="/">Voltar</a>
         
     </div>
 
@@ -17,6 +17,7 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Descrição</th>
+              <th scope="col">#</th>
             </tr>
           </thead>
           <tbody>
@@ -24,6 +25,7 @@
            <tr>
               <th>{{dbs.id}}</th>
               <td>{{dbs.descricao}}</td>
+              <td><a href="{% url 'tipopapel.update' dbs.id %}">Update</a><a href="{% url 'tipopapel.delete' dbs.id %}">Delete</a></td>
             </tr>
           {% endfor %}
         

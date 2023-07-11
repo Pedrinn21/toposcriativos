@@ -4,6 +4,6 @@ from . import views
 urlpatterns = [
     path('list/', views.list, name="tipopapel.list"),
     path('insert/', views.insert, name="tipopapel.insert"),
-    path('update', views.update, name="tipopapel.update"),
-    path('delete', views.delete, name="tipopapel.delete"),
+    path('update/<int:id>/', views.update, name="tipopapel.update"),
+    path('delete/<int:id>/', views.delete, name="tipopapel.delete"),
 ]

@@ -1,0 +1,30 @@
+{% extends "tipopapel_master.html" %}
+
+{% block main %}
+
+<div class="container">
+    <h1 style="text-align:center"><b>EDITAR TIPO DE PAPEL</b></h1>
+</div>
+<br>
+<br>
+<div class="container">
+    <form action="{% url 'tipopapel.update' tipopapel.id %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleInputPassword1">Descrição</label>
+            <input name="descricao" type="text" class="form-control" id="exampleInputPassword1" value="{{tipopapel.descricao}}">
+        </div>
+        <br>
+        <div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+
+    </form>
+</div>
+<br>
+<br>
+<div class="container">
+    <a href="/tipopapel/list" class="btn btn-primary">Voltar</a>
+</div>
+
+{% endblock main %}

@@ -20,11 +20,31 @@ def insert(request):
     elif request.method == "GET":
         return render(request, 'tipopapel_insert.html')
 
-def save(request):
-    return HttpResponse('Tipo papel Salvo')
+def update(request, id):
+    if request.method == "POST":
 
-def update(request):
-    return HttpResponse('Aqui vai ser a update do tipopapel')
+        descricao = request.POST.get('descricao')
+        print("Descricao:" + descricao)
 
-def delete(request):
-    return HttpResponse('Aqui vai ser a delete do tipopapel')
+        tipopapel = TipoPapel(id=id, descricao=descricao)
+
+        tipopapel.save()
+
+        return list(request)
+
+    elif request.method == "GET":
+
+        print (id)
+        data = {}
+        data['tipopapel'] = TipoPapel.objects.get(id=id)
+        
+        print(data)
+
+        return render(request, 'tipopapel_update.html', data)
+
+def delete(request, id):
+
+    tipopapel = TipoPapel.objects.get(id=id)
+    tipopapel.delete()
+
+    return list(request)

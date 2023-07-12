@@ -21,11 +21,11 @@
             </tr>
           </thead>
           <tbody>
-          {% for dbs in db %}
+          {% for tipo in tipopapel %}
            <tr>
-              <th>{{dbs.id}}</th>
-              <td>{{dbs.descricao}}</td>
-              <td><a href="{% url 'tipopapel.update' dbs.id %}">Update</a><a href="{% url 'tipopapel.delete' dbs.id %}">Delete</a></td>
+              <th>{{tipo.id}}</th>
+              <td>{{tipo.descricao}}</td>
+              <td><a href="{% url 'tipopapel.update' tipo.id %}">Update</a><a href="{% url 'tipopapel.delete' tipo.id %}">Delete</a></td>
             </tr>
           {% endfor %}
         

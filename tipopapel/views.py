@@ -4,7 +4,7 @@ from .models import *
 
 def list(request):
     data = {}
-    data['db'] = TipoPapel.objects.all()
+    data['tipopapel'] = TipoPapel.objects.all()
     return render(request, 'tipopapel_list.html', data)
 
 def insert(request):

@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from tipopapel import views
 
 urlpatterns = [
     path('list/', views.list, name="tipopapel.list"),

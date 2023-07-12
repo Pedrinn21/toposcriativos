@@ -1,0 +1,42 @@
+{% extends "materiaprima_master.html" %}
+
+{% block main %}
+    <div class="btn-group-vertical">
+        <a type="button" class="btn btn-secondary" href="{% url 'materiaprima.insert' %}">Insert</a>
+        <a type="button" class="btn btn-secondary" href="/">Voltar</a>
+        
+    </div>
+
+    <div class="container">
+        <h1 style="text-align:center"><b>MATERIAS PRIMAS</b></h1>
+      </div>
+      <br>
+      <div class="container">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Tipo Papel</th>
+              <th scope="col">Gramatura</th>
+              <th scope="col">Quantidade</th>
+              <th scope="col">#</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for materia in materiaprima %}
+           <tr>
+              <th>{{materia.id}}</th>
+              <td>{{materia.fktipopapel}}</td>
+              <td>{{materia.gramatura}}</td>
+              <td>{{materia.quantidade}}</td>
+              <td><a href="{% url 'materiaprima.update' materia.id %}">Update</a><a href="{% url 'materiaprima.delete' materia.id %}">Delete</a></td>
+            </tr>
+          {% endfor %}
+        
+          </tbody>
+        </table>
+      </div>
+
+{% endblock main %}
+
+    

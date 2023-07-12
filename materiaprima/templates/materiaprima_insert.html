@@ -1,0 +1,48 @@
+{% extends "tipopapel_master.html" %}
+
+{% block main %}
+
+<div class="container">
+    <h1 style="text-align:center"><b>CADASTRAR TIPO DE PAPEL</b></h1>
+</div>
+<br>
+<br>
+<div class="container">
+    <form action="{% url 'materiaprima.insert' %}" method="POST">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Tipo de Papel</label>
+            <select name="tipopapel" class="form-control">
+                {% for tipo in tipopapel %}
+                <option value="{{tipo.id}}">{{tipo.descricao}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Gramatura</label>
+            <input name="gramatura" type="number" class="form-control" id="exampleInputPassword1" placeholder="Digite a gramatura">
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Quantidade</label>
+            <input name="quantidade" type="number" class="form-control" id="exampleInputPassword1" placeholder="Digite a Quantidade">
+        </div>
+        <br>
+
+        <div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+
+    </form>
+</div>
+<br>
+<br>
+<div class="container">
+    <a href="{% url 'materiaprima.list' %}" class="btn btn-primary">Voltar</a>
+</div>
+
+{% endblock main %}

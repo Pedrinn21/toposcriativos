@@ -6,5 +6,4 @@ class MateriaPrima(models.Model):
     gramatura = models.FloatField()
     quantidade = models.IntegerField()
     
-    def __str__(self) -> str:
-        return self.descricao
+    

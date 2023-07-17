@@ -10,13 +10,19 @@
     <title>Document</title>
 </head>
 <body>
+    
+    <div>
+        {% block menu%}
+        {% endblock menu %}
+    </div>
+    
+    <div>
+        {% block main %}
 
-    <a type="button" href="tipopapel/list">Tipo Produto</a>
-    <a type="button" href="materiaprima/list">Materia Prima</a>
+        {% endblock main %}
+    </div>
 
-    {% block main %}
-
-    {% endblock main %}
+    
     
 </body>
 </html>

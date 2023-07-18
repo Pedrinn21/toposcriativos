@@ -1,11 +1,16 @@
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.shortcuts import render
-from django.http import HttpResponse
 from .models import *
 
 def list(request):
     data = {}
     data['tipopapel'] = TipoPapel.objects.all()
     return render(request, 'tipopapel_list.html', data)
+
+    
+def redirect():
+    return HttpResponseRedirect(reverse('tipopapel.list'))
 
 def insert(request):
     if request.method == "POST":
@@ -15,7 +20,7 @@ def insert(request):
 
         tipopapel.save()
 
-        return list(request)
+        return redirect()
     
     elif request.method == "GET":
         return render(request, 'tipopapel_insert.html')
@@ -30,7 +35,7 @@ def update(request, id):
 
         tipopapel.save()
 
-        return list(request)
+        return redirect()
 
     elif request.method == "GET":
 
@@ -47,4 +52,4 @@ def delete(request, id):
     tipopapel = TipoPapel.objects.get(id=id)
     tipopapel.delete()
 
-    return list(request)
+    return redirect()

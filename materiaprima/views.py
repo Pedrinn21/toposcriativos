@@ -1,7 +1,8 @@
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.shortcuts import render
-from tipopapel import models
 from .models import *
-from django.http import HttpResponse
+
 
 def list(request):
     data = {}
@@ -25,7 +26,7 @@ def insert(request):
 
         materiaprima.save()
 
-        return list(request)
+        return redirect()
 
 
     elif request.method == "GET":
@@ -51,7 +52,7 @@ def update(request, id):
 
         materiaprima.save()
 
-        return list(request)
+        return redirect()
 
     elif request.method == "GET":
         print (id)
@@ -65,8 +66,11 @@ def update(request, id):
 
 
 def delete(request, id):
-
+    
     materiaprima = MateriaPrima.objects.get(id=id)
     materiaprima.delete()
 
-    return list(request)
+    return redirect()
+
+def redirect():
+    return HttpResponseRedirect(reverse('materiaprima.list'))

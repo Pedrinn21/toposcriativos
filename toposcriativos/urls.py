@@ -6,5 +6,6 @@ urlpatterns = [
     path('', include('home.urls')),
     path('tipopapel/', include('tipopapel.urls')),
     path('materiaprima/', include('materiaprima.urls')),
+    path('tipoproduto/', include('tipoproduto.urls')),
     
 ]

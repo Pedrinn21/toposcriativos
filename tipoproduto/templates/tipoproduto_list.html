@@ -1,0 +1,38 @@
+{% extends "static\home\html\base.html" %}
+
+{% block main %}
+    <div class="btn-group-vertical">
+        <a type="button" class="btn btn-secondary" href="{% url 'tipoproduto.insert' %}">Insert</a>
+        <a type="button" class="btn btn-secondary" href="/">Voltar</a>
+        
+    </div>
+
+    <div class="container">
+        <h1 style="text-align:center"><b>TIPOS DE PRODUTOS</b></h1>
+      </div>
+      <br>
+      <div class="container">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Descrição</th>
+              <th scope="col">#</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for tipo in tipoproduto %}
+           <tr>
+              <th>{{tipo.id}}</th>
+              <td>{{tipo.descricao}}</td>
+              <td><a href="{% url 'tipoproduto.update' tipo.id %}">Update</a><a href="{% url 'tipoproduto.delete' tipo.id %}">Delete</a></td>
+            </tr>
+          {% endfor %}
+        
+          </tbody>
+        </table>
+      </div>
+
+{% endblock main %}
+
+    

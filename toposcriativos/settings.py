@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'tipopapel',
     'home',
     'materiaprima',
+    'tipoproduto',
 ]
 
 MIDDLEWARE = [

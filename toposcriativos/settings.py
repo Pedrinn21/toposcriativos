@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'home',
     'materiaprima',
     'tipoproduto',
+    'produto',
 ]
 
 MIDDLEWARE = [

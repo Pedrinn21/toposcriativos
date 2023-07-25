@@ -1,0 +1,58 @@
+{% extends "static\home\html\base.html" %}
+
+{% block main %}
+
+{{materiaprima.gramatura}}
+{{tipopapel.id}}
+
+<div class="container">
+    <h1 style="text-align:center"><b>EDITAR TIPO DE PAPEL</b></h1>
+</div>
+<br>
+<br>
+<div class="container">
+    <form action="{% url 'materiaprima.update' materiaprima.id %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleInputPassword1">Tipo de Papel</label>
+            <select name="tipopapel" class="form-control">
+                {% for tipo in tipopapel %}
+                    {% if materiaprima.fktipopapel|stringformat:"s" == tipo.descricao|stringformat:"s" %}
+                        <option value="{{tipo.id}}" >{{tipo.descricao}}</option>
+                    {% endif %}
+                {% endfor %}
+
+                {% for tipo in tipopapel %}
+                    {% if materiaprima.fktipopapel|stringformat:"s" != tipo.descricao|stringformat:"s" %}
+                        <option value="{{tipo.id}}" >{{tipo.descricao}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Gramatura</label>
+            <input name="gramatura" type="number" class="form-control" id="exampleInputPassword1" value="{{materiaprima.gramatura}}">
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Quantidade</label>
+            <input name="quantidade" type="number" class="form-control" id="exampleInputPassword1" value="{{materiaprima.quantidade}}">
+        </div>
+        <br>
+        <br>
+        <div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+
+    </form>
+</div>
+<br>
+<br>
+<div class="container">
+    <a href="/materiaprima/list" class="btn btn-primary">Voltar</a>
+</div>
+
+{% endblock main %}

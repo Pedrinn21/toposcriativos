@@ -1,0 +1,46 @@
+
+
+{% extends "static\home\html\base.html" %}
+
+{% block main %}
+    <div class="btn-group-vertical">
+        <a type="button" class="btn btn-secondary" href="{% url 'produto.insert' %}">Insert</a>
+        <a type="button" class="btn btn-secondary" href="/">Voltar</a>
+        
+    </div>
+
+    <div class="container">
+        <h1 style="text-align:center"><b>PRODUTOS</b></h1>
+      </div>
+      <br>
+      <div class="container">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Tipo Produto</th>
+              <th scope="col">Materias Primas</th>
+              <th scope="col">Gasto</th>
+              <th scope="col">Valor</th>
+              <th scope="col">#</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for prod in produto %}
+           <tr>
+              <th>{{prod.id}}</th>
+              <td>{{prod.fktipoproduto}}</td>
+              <td>{{prod.materiaprima}}</td>
+              <td>{{prod.gasto}}</td>
+              <td>{{prod.valor}}</td>
+              <td><a href="{% url 'produto.update' prod.id %}">Update</a><a href="{% url 'produto.delete' prod.id %}">Delete</a></td>
+            </tr>
+          {% endfor %}
+        
+          </tbody>
+        </table>
+      </div>
+
+{% endblock main %}
+
+    
